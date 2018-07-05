@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Flask-WTF模块</title>
+</head>
+
+<body>
+  {% for message in form.firstname.errors %}
+  <div>{{message}}</div>
+  {% endfor %}
+  <form acion='http://locahost:5000' method=post>
+    <fieldset>
+      {{form.hidden_tag()}}
+      <!--防止跨域访问-->{{form.firstname.label}} <br> {{form.firstname}} <br> {{form.submit}}
+
+    </fieldset>
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Flask-WTF支持的简单表单组建</title>
+</head>
+
+<body>
+  {% if ok %}
+  <script>
+    alert('data record successfully')
+  </script>
+  {% endif %} {% for message in form.radio.errors %}
+  <div>{{message}}</div>
+  {% endfor %} {% for message in form.select.errors %}
+  <div>{{message}}</div>
+  {% endfor %} {% for message in form.selectMultiple.errors %}
+  <div>{{message}}</div>
+  {% endfor %}
+  <form acion='http://locahost:5000' method=post>
+    <fieldset>
+      {{form.hidden_tag()}}
+      <!--防止跨域访问-->
+      {{form.radio.label}} <br> {{form.radio}} <br> {{form.select.label}} <br> {{form.select}} <br> {{form.selectMultiple.label}} <br> {{form.selectMultiple}} <br>
+      <br> {{form.submit}}
+
+    </fieldset>
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+{% macro macro_render_item(item)  %}
+        <tr>
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+        </tr>
+  {% endmacro %}

@@ -1,0 +1,25 @@
+
+  {% import 'item.macro' as macros %}
+
+      <table border="1">
+
+        <tr>
+          <th>id</th>
+          <th>name</th>
+        </tr>
+          <!--from normal for-->
+           {% for item in items %}
+             <tr>
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+        </tr>
+        {% endfor %}
+          <!--get from import-->
+        {% for item in items %}
+            {{ macros.macro_render_item(item)}}
+        {% endfor %}
+       <!--from current macro -->
+           {% for item in items %}
+          {{ macros.macro_render_item(item) }}
+        {% endfor %}
+        </table>

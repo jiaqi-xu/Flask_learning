@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>宏操作</title>
+</head>
+
+<body>
+  {% import 'item.macro' as macros %}
+  {% macro render_item(item)  %}
+        <tr>
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+        </tr>
+  {% endmacro %}
+  <ul>
+      <table border="1">
+
+        <tr>
+          <th>id</th>
+          <th>name</th>
+        </tr>
+          <!--from normal for-->
+           {% for item in items %}
+             <tr>
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+        </tr>
+        {% endfor %}
+          <!--get from import-->
+        {% for item in items %}
+            {{ macros.macro_render_item(item)}}
+        {% endfor %}
+       <!--from current macro -->
+           {% for item in items %}
+          {{ render_item(item) }}
+        {% endfor %}
+        </table>
+  </ul>
+</body>
+
+</html>
